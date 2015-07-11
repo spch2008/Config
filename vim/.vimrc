@@ -1,3 +1,6 @@
+let mapleader=","               " leader map
+filetype plugin on              " plugin on
+
 set number                      " Line numbers on
 set showmatch                   " Show matching brackets/parenthesis
 set incsearch                   " Find as you type search
@@ -12,6 +15,13 @@ set splitright                  " Puts new vsplit windows to the right of the cu
 set splitbelow                  " Puts new split windows to the bottom of the current
 set ruler						" Show the ruler
 
+" ctags
+map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let Tlist_Show_One_File=1  
+let Tlist_Exit_OnlyWindow=1 
+
+" taglist
+map <F4> :TlistToggle<CR>
 
 let NERDTreeWinPos=1
 map <F3> :NERDTreeMirror<CR>
@@ -81,7 +91,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<SPACE>"
 
 " For cursor moving in insert mode(Not recommended)
 "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
