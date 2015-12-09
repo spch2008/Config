@@ -99,3 +99,5 @@ inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
 "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
 "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 " Or set this.
+
+set term=xterm “退出vim清屏”
