@@ -14,7 +14,7 @@ set nojoinspaces                " Prevents inserting two spaces after punctuatio
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 set ruler			" Show the ruler
-set hlsearch                    " Search highlight"
+set hlsearch                    " Search highlight
 
 " ctags
 map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -101,4 +101,7 @@ inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
 "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 " Or set this.
 
-set term=xterm “退出vim清屏”
+"记录vim打开位置"
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
